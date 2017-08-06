@@ -26,6 +26,10 @@ if has_maven_wrapper $BUILD_DIR; then
   rm -rf $BUILD_DIR/.m2
 fi
 
+#Maven
 for DIR in ".m2" ".maven" ; do
   cp -r $CACHE_DIR/$DIR $BUILD_DIR/$DIR
 done
+  mkdir -p $BUILD_DIR/.profile.d
+  echo "Copying .profile.d"
+  cp -r $BP_DIR/.profile.d/* $BUILD_DIR/.profile.d
